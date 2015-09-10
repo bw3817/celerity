@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block numerals %}
+<form method="post" action=".">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div>
+    {% endfor %}
+    <button>Convert</button>
+</form>
+{% endblock numerals %}
